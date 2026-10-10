@@ -7,7 +7,6 @@ void main() {
   runApp(const MyApp());
 }
 
-// Main application
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -20,20 +19,23 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
         ),
+
         useMaterial3: true,
       ),
+
       home: const DiceScreen(),
     );
+
   }
 }
 
-// Dice game screen
 class DiceScreen extends StatefulWidget {
   const DiceScreen({super.key});
 
   @override
   State<DiceScreen> createState() => _DiceScreenState();
 }
+
 
 class _DiceScreenState extends State<DiceScreen> {
   int dice1 = 1;
@@ -44,7 +46,8 @@ class _DiceScreenState extends State<DiceScreen> {
   String imagePath = 'assets/sad.png';
   String resultText = 'Sad';
 
-  // Roll both dice
+
+
   void rollDice() {
     setState(() {
       dice1 = Random().nextInt(6) + 1;
@@ -62,7 +65,8 @@ class _DiceScreenState extends State<DiceScreen> {
     });
   }
 
-  // Reset the game
+
+
   void resetGame() {
     setState(() {
       dice1 = 1;
@@ -91,13 +95,12 @@ class _DiceScreenState extends State<DiceScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
           children: [
-            // Display total
             Text(
               'Total: $total',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
 
-            // Display result text and image
+
             Column(
               children: [
                 Text(
@@ -120,7 +123,6 @@ class _DiceScreenState extends State<DiceScreen> {
               ],
             ),
 
-            // Display both dice
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -129,7 +131,6 @@ class _DiceScreenState extends State<DiceScreen> {
               ],
             ),
 
-            // Roll and Reset buttons
             Row(
               children: [
                 Expanded(
